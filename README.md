@@ -1,7 +1,8 @@
-# Cross-compiling `pkg-config` for Windows(static build)
+# Cross-compiling pkg-config for Windows(static build)
 
 ## Installing build tools
-```
+
+```bash
 sudo apt install git autoconf automake libtool ninja-build meson mingw-w64 mingw-w64-tools
 
 sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
@@ -10,21 +11,25 @@ sudo update-alternatives --set i686-w64-mingw32-g++ /usr/bin/i686-w64-mingw32-g+
 sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
 ```
 
-## Checking out this repository(`pkg-config-for-windows`)
+## Checking out this repository(pkg-config-for-windows)
+
 Since `cross_file.txt` contains.
-```
+
+```bash
 git clone https://github.com/sincos2854/pkg-config-for-windows.git
 ```
 
-## Checking out `GLib` and `pkg-config`
-```
+## Checking out GLib and pkg-config
+
+```bash
 cd ./pkg-config-for-windows
 git clone -b 2.78.6 --depth 1 https://gitlab.gnome.org/GNOME/glib.git
 git clone -b pkg-config-0.29.2 --depth 1 https://gitlab.freedesktop.org/pkg-config/pkg-config.git
 ```
 
-## Building `Glib`
-```
+## Building Glib
+
+```bash
 export GLIB_OUT_DIR=$(pwd)/glib_out
 export PKG_OUT_DIR=$(pwd)/pkg_out
 
@@ -43,8 +48,9 @@ meson compile -C build
 meson install -C build
 ```
 
-## Building `pkg-config`
-```
+## Building pkg-config
+
+```bash
 cd ../pkg-config
 
 ./autogen.sh \
@@ -61,9 +67,11 @@ make install
 cd ../
 ```
 
-## Copying `pkg-config.exe`
-```
+## Copying pkg-config.exe
+
+```bash
 mkdir windows
 cp $PKG_OUT_DIR/bin/pkg-config.exe ./windows/
 ```
+
 For static build, `libglib-2.0-0.dll` and `libintl-8.dll` are not required.
