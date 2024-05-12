@@ -3,12 +3,31 @@
 ## Installing build tools
 
 ```bash
-sudo apt install git autoconf automake libtool ninja-build meson mingw-w64 mingw-w64-tools
+sudo apt install git autoconf automake libtool ninja-build mingw-w64 mingw-w64-tools
 
 sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw32-g++-posix
 sudo update-alternatives --set x86_64-w64-mingw32-gcc /usr/bin/x86_64-w64-mingw32-gcc-posix
 sudo update-alternatives --set i686-w64-mingw32-g++ /usr/bin/i686-w64-mingw32-g++-posix
 sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
+```
+
+## Installing latest meson
+
+`meson` installed with `apt` needs to be removed. After installing `meson` with `pip`, set the PATH. Success if meson `version` is newer than `1.4.0`.
+
+```bash
+sudo apt purge meson
+
+sudo apt install python3-pip
+python3 -m pip install meson
+
+export PATH=$PATH:~/.local/bin
+
+# Uncomment the following lines if necessary.
+# echo -e '\nexport PATH=$PATH:~/.local/bin' >> ~/.bash_profile
+# source ~/.bash_profile
+
+meson --version
 ```
 
 ## Checking out this repository(pkg-config-for-windows)
@@ -23,7 +42,7 @@ git clone https://github.com/sincos2854/pkg-config-for-windows.git
 
 ```bash
 cd ./pkg-config-for-windows
-git clone -b 2.78.6 --depth 1 https://gitlab.gnome.org/GNOME/glib.git
+git clone -b 2.80.2 --depth 1 https://gitlab.gnome.org/GNOME/glib.git
 git clone -b pkg-config-0.29.2 --depth 1 https://gitlab.freedesktop.org/pkg-config/pkg-config.git
 ```
 
