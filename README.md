@@ -13,7 +13,7 @@ sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gc
 
 ## Installing latest meson
 
-`meson` installed with `apt` needs to be removed. After installing `meson` with `pip`, set the PATH. Success if meson `version` is newer than `1.4.0`.
+`meson` installed with `apt` needs to be removed. After installing `meson` with `pip`, set the PATH. Success if meson `version` is 1.4.0 or higher.
 
 ```bash
 sudo apt purge meson
