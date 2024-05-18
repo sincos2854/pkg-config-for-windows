@@ -18,7 +18,6 @@ sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gc
 ```bash
 sudo apt purge meson
 
-sudo apt install python3-pip
 python3 -m pip install meson
 
 export PATH=$PATH:~/.local/bin
