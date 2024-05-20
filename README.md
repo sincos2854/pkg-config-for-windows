@@ -20,11 +20,11 @@ sudo apt purge meson
 
 python3 -m pip install meson
 
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:$HOME/.local/bin
 
 # Uncomment the following lines if necessary.
-# echo -e '\nexport PATH=$PATH:~/.local/bin' >> ~/.bash_profile
-# source ~/.bash_profile
+# echo -e '\nexport PATH=$PATH:$HOME/.local/bin' >> $HOME/.bash_profile
+# source $HOME/.bash_profile
 
 meson --version
 ```
